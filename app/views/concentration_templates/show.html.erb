@@ -1,0 +1,65 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Concentration #<%= @concentration.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/concentrations" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/concentrations/<%= @concentration.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit concentration
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_concentration/<%= @concentration.id %>" class="btn btn-block btn-outline-secondary">
+          Delete concentration
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Compound
+      </dt>
+      <dd>
+        <%= @concentration.compound_id %>
+      </dd>
+
+      <dt>
+        Ingredient concentration
+      </dt>
+      <dd>
+        <%= @concentration.ingredient_concentration %>
+      </dd>
+
+      <dt>
+        Ingredient
+      </dt>
+      <dd>
+        <%= @concentration.ingredient_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@concentration.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@concentration.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

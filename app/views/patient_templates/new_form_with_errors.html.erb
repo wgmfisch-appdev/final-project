@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @patient.present? %>
+  <% if @patient.errors.any? %>
+    <% @patient.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new patient
+</h1>
+
+
+<hr>
+
+<form action="/create_patient" method="post">
+
+  <div class="form-group">
+    <label for="dob">
+      Dob
+    </label>
+
+    <input type="text" id="dob" name="dob" class="form-control" value="<%= @patient.dob %>">
+  </div>
+
+  <div class="form-group">
+    <label for="doctor_id">
+      Doctor
+    </label>
+
+    <input type="text" id="doctor_id" name="doctor_id" class="form-control" value="<%= @patient.doctor_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create patient
+  </button>
+</form>
+
+<hr>
+
+<a href="/patients">
+  Go back
+</a>

@@ -1,0 +1,50 @@
+<% if @concentration.errors.any? %>
+  <% @concentration.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit concentration #<%= @concentration.id %>
+</h1>
+
+<hr>
+
+<form action="/update_concentration/<%= @concentration.id %>" method="post">
+
+  <div class="form-group">
+    <label for="compound_id">
+      Compound
+    </label>
+
+    <input type="text" id="compound_id" name="compound_id" class="form-control" value="<%= @concentration.compound_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="ingredient_concentration">
+      Ingredient concentration
+    </label>
+
+    <input type="text" id="ingredient_concentration" name="ingredient_concentration" class="form-control" value="<%= @concentration.ingredient_concentration %>">
+  </div>
+
+  <div class="form-group">
+    <label for="ingredient_id">
+      Ingredient
+    </label>
+
+    <input type="text" id="ingredient_id" name="ingredient_id" class="form-control" value="<%= @concentration.ingredient_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update concentration
+  </button>
+</form>
+
+<hr>
+
+<a href="/concentrations">
+  Go back
+</a>

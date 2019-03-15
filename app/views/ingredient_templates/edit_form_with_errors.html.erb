@@ -1,0 +1,42 @@
+<% if @ingredient.errors.any? %>
+  <% @ingredient.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit ingredient #<%= @ingredient.id %>
+</h1>
+
+<hr>
+
+<form action="/update_ingredient/<%= @ingredient.id %>" method="post">
+
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control" value="<%= @ingredient.name %>">
+  </div>
+
+  <div class="form-check">
+    <input type="hidden" value="0" name="is_base">
+    <input id="is_base" class="form-check-input" name="is_base" type="checkbox" value="1" <%= "checked" if @ingredient.is_base %>>
+    <label for="is_base" class="form-check-label">
+      Is base
+    </label>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update ingredient
+  </button>
+</form>
+
+<hr>
+
+<a href="/ingredients">
+  Go back
+</a>

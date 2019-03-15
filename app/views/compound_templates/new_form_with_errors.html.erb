@@ -1,0 +1,38 @@
+<!-- Validation failure messages -->
+<% if @compound.present? %>
+  <% if @compound.errors.any? %>
+    <% @compound.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new compound
+</h1>
+
+
+<hr>
+
+<form action="/create_compound" method="post">
+
+  <div class="form-group">
+    <label for="patient_id">
+      Patient
+    </label>
+
+    <input type="text" id="patient_id" name="patient_id" class="form-control" value="<%= @compound.patient_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create compound
+  </button>
+</form>
+
+<hr>
+
+<a href="/compounds">
+  Go back
+</a>

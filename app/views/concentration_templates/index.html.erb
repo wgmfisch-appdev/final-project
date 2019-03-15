@@ -1,0 +1,82 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All concentrations
+    </h1>
+
+    <a href="/concentrations/new" class="btn btn-block btn-outline-secondary">
+      Add a new concentration
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Compound
+        </th>
+
+        <th>
+          Ingredient concentration
+        </th>
+
+        <th>
+          Ingredient
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @concentrations.each do |concentration| %>
+      <tr>
+        <td>
+          <%= concentration.id %>
+        </td>
+
+        <td>
+          <%= concentration.compound_id %>
+        </td>
+
+        <td>
+          <%= concentration.ingredient_concentration %>
+        </td>
+
+        <td>
+          <%= concentration.ingredient_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(concentration.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(concentration.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/concentrations/<%= concentration.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<h1>
+  Add a new ingredient
+</h1>
+
+
+<hr>
+
+<form action="/create_ingredient" method="post">
+
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control">
+  </div>
+
+  <div class="form-check">
+    <input type="hidden" value="0" name="is_base">
+    <input id="is_base" class="form-check-input" name="is_base" type="checkbox">
+    <label for="is_base" class="form-check-label">
+      Is base
+    </label>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create ingredient
+  </button>
+</form>
+
+<hr>
+
+<a href="/ingredients">
+  Go back
+</a>

@@ -1,0 +1,34 @@
+<h1>
+  Edit favorite compound #<%= @favorite_compound.id %>
+</h1>
+
+<hr>
+
+<form action="/update_favorite_compound/<%= @favorite_compound.id %>" method="post">
+
+  <div class="form-group">
+    <label for="favorited_by">
+      Favorited by
+    </label>
+
+    <input type="text" id="favorited_by" name="favorited_by" class="form-control" value="<%= @favorite_compound.favorited_by %>">
+  </div>
+
+  <div class="form-group">
+    <label for="compound_id">
+      Compound
+    </label>
+
+    <input type="text" id="compound_id" name="compound_id" class="form-control" value="<%= @favorite_compound.compound_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update favorite compound
+  </button>
+</form>
+
+<hr>
+
+<a href="/favorite_compounds">
+  Go back
+</a>

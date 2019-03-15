@@ -1,0 +1,58 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Favorite compound #<%= @favorite_compound.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/favorite_compounds" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/favorite_compounds/<%= @favorite_compound.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit favorite compound
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_favorite_compound/<%= @favorite_compound.id %>" class="btn btn-block btn-outline-secondary">
+          Delete favorite compound
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Favorited by
+      </dt>
+      <dd>
+        <%= @favorite_compound.favorited_by %>
+      </dd>
+
+      <dt>
+        Compound
+      </dt>
+      <dd>
+        <%= @favorite_compound.compound_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@favorite_compound.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@favorite_compound.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

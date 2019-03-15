@@ -1,0 +1,74 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All patients
+    </h1>
+
+    <a href="/patients/new" class="btn btn-block btn-outline-secondary">
+      Add a new patient
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Dob
+        </th>
+
+        <th>
+          Doctor
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @patients.each do |patient| %>
+      <tr>
+        <td>
+          <%= patient.id %>
+        </td>
+
+        <td>
+          <%= patient.dob %>
+        </td>
+
+        <td>
+          <%= patient.doctor_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(patient.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(patient.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/patients/<%= patient.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

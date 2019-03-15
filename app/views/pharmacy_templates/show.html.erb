@@ -1,0 +1,72 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Pharmacy #<%= @pharmacy.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/pharmacies" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/pharmacies/<%= @pharmacy.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit pharmacy
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_pharmacy/<%= @pharmacy.id %>" class="btn btn-block btn-outline-secondary">
+          Delete pharmacy
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Address
+      </dt>
+      <dd>
+        <%= @pharmacy.address %>
+      </dd>
+
+      <dt>
+        Hours
+      </dt>
+      <dd>
+        <%= @pharmacy.hours %>
+      </dd>
+
+      <dt>
+        Rating
+      </dt>
+      <dd>
+        <%= @pharmacy.rating %>
+      </dd>
+
+      <dt>
+        Api credentials
+      </dt>
+      <dd>
+        <%= @pharmacy.api_credentials %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@pharmacy.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@pharmacy.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+

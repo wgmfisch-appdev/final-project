@@ -1,0 +1,66 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All compounds
+    </h1>
+
+    <a href="/compounds/new" class="btn btn-block btn-outline-secondary">
+      Add a new compound
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Patient
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @compounds.each do |compound| %>
+      <tr>
+        <td>
+          <%= compound.id %>
+        </td>
+
+        <td>
+          <%= compound.patient_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(compound.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(compound.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/compounds/<%= compound.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<h1>
+  Edit compound #<%= @compound.id %>
+</h1>
+
+<hr>
+
+<form action="/update_compound/<%= @compound.id %>" method="post">
+
+  <div class="form-group">
+    <label for="patient_id">
+      Patient
+    </label>
+
+    <input type="text" id="patient_id" name="patient_id" class="form-control" value="<%= @compound.patient_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update compound
+  </button>
+</form>
+
+<hr>
+
+<a href="/compounds">
+  Go back
+</a>

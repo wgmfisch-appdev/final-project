@@ -1,0 +1,58 @@
+<% if @pharmacy.errors.any? %>
+  <% @pharmacy.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit pharmacy #<%= @pharmacy.id %>
+</h1>
+
+<hr>
+
+<form action="/update_pharmacy/<%= @pharmacy.id %>" method="post">
+
+  <div class="form-group">
+    <label for="address">
+      Address
+    </label>
+
+    <input type="text" id="address" name="address" class="form-control" value="<%= @pharmacy.address %>">
+  </div>
+
+  <div class="form-group">
+    <label for="hours">
+      Hours
+    </label>
+
+    <input type="text" id="hours" name="hours" class="form-control" value="<%= @pharmacy.hours %>">
+  </div>
+
+  <div class="form-group">
+    <label for="rating">
+      Rating
+    </label>
+
+    <input type="text" id="rating" name="rating" class="form-control" value="<%= @pharmacy.rating %>">
+  </div>
+
+  <div class="form-group">
+    <label for="api_credentials">
+      Api credentials
+    </label>
+
+    <input type="text" id="api_credentials" name="api_credentials" class="form-control" value="<%= @pharmacy.api_credentials %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update pharmacy
+  </button>
+</form>
+
+<hr>
+
+<a href="/pharmacies">
+  Go back
+</a>

@@ -1,0 +1,90 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All pharmacies
+    </h1>
+
+    <a href="/pharmacies/new" class="btn btn-block btn-outline-secondary">
+      Add a new pharmacy
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Hours
+        </th>
+
+        <th>
+          Rating
+        </th>
+
+        <th>
+          Api credentials
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @pharmacies.each do |pharmacy| %>
+      <tr>
+        <td>
+          <%= pharmacy.id %>
+        </td>
+
+        <td>
+          <%= pharmacy.address %>
+        </td>
+
+        <td>
+          <%= pharmacy.hours %>
+        </td>
+
+        <td>
+          <%= pharmacy.rating %>
+        </td>
+
+        <td>
+          <%= pharmacy.api_credentials %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(pharmacy.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(pharmacy.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/pharmacies/<%= pharmacy.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

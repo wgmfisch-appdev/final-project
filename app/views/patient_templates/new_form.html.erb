@@ -1,0 +1,35 @@
+<h1>
+  Add a new patient
+</h1>
+
+
+<hr>
+
+<form action="/create_patient" method="post">
+
+  <div class="form-group">
+    <label for="dob">
+      Dob
+    </label>
+
+    <input type="text" id="dob" name="dob" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="doctor_id">
+      Doctor
+    </label>
+
+    <input type="text" id="doctor_id" name="doctor_id" class="form-control">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create patient
+  </button>
+</form>
+
+<hr>
+
+<a href="/patients">
+  Go back
+</a>
