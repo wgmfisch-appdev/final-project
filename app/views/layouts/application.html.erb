@@ -26,6 +26,7 @@
   </head>
 
   <body>
+    <%= render "shared/navbar.html.erb" %>
     <%= yield %>
 
     <%= dev_tools if Rails.env.development? %>

@@ -27,5 +27,5 @@ class User < ApplicationRecord
          
          has_many :patients, :foreign_key => "doctor_id", :dependent => :destroy
          has_many :favorite_compounds, :foreign_key => "favorited_by", :dependent => :destroy
-         belongs_to :pharmacy
+        # belongs_to :pharmacy
 end
