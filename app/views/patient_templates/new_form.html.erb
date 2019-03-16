@@ -6,14 +6,28 @@
 <hr>
 
 <form action="/create_patient" method="post">
+  <div class="form-group">
+    <label for="first_name">
+      First Name
+    </label>
 
+    <input type="text" id="first_name" name="first_name" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="last_name">
+      Last Name
+    </label>
+
+    <input type="text" id="last_name" name="last_name" class="form-control">
+  </div>
   <div class="form-group">
     <label for="dob">
-      Dob
+      Date of Birth
     </label>
 
     <input type="text" id="dob" name="dob" class="form-control">
   </div>
+  
 
   <input type="hidden" name="user_id" value="<%= current_user.email %>"></input>
 

@@ -21,6 +21,8 @@ class PatientsController < ApplicationController
     @patient = Patient.new
 
     @patient.dob = params.fetch("dob")
+    @patient.first_name = params.fetch("first_name")
+    @patient.last_name = params.fetch("last_name")
     @patient.doctor_id =  current_user.id
 
     if @patient.valid?
