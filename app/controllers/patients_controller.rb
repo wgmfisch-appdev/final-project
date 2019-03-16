@@ -21,7 +21,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new
 
     @patient.dob = params.fetch("dob")
-    @patient.doctor_id = params.fetch("doctor_id")
+    @patient.doctor_id =  current_user.id
 
     if @patient.valid?
       @patient.save
