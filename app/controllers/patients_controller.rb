@@ -44,7 +44,7 @@ class PatientsController < ApplicationController
   def update_row
     @patient = Patient.find(params.fetch("id_to_modify"))
 
-    @patient.dob = params.fetch("dob")
+    @patient.dob = Chronic.parse(params.fetch("dob"))
     @patient.first_name = params.fetch("first_name")
     @patient.last_name = params.fetch("last_name")
     @patient.doctor_id =  current_user.id

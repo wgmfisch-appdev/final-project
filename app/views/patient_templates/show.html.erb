@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Patient #<%= @patient.id %> details
+      <%= @patient.first_name %> <%= @patient.last_name %>'s details
     </h1>
 
     <div class="row mb-3">
@@ -26,7 +26,7 @@
 
     <dl>
       <dt>
-        Dob
+        Date of Birth
       </dt>
       <dd>
         <%= @patient.dob %>
@@ -41,14 +41,14 @@
       </dd>
 
       <dt>
-        Created at
+        Patient Since
       </dt>
       <dd>
         <%= time_ago_in_words(@patient.created_at) %> ago
       </dd>
 
       <dt>
-        Updated at
+        Last Updated
       </dt>
       <dd>
         <%= time_ago_in_words(@patient.updated_at) %> ago
