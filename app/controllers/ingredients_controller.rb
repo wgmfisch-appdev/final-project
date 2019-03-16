@@ -21,7 +21,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
 
     @ingredient.name = params.fetch("name")
-    @ingredient.is_base = params.fetch("is_base")
+    @ingredient.is_base = params.fetch("is_base", false)
 
     if @ingredient.valid?
       @ingredient.save
