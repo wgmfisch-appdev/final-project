@@ -1,3 +1,4 @@
+require 'chronic'
 class PatientsController < ApplicationController
   def index
     @patients = Patient.all
@@ -20,7 +21,7 @@ class PatientsController < ApplicationController
   def create_row
     @patient = Patient.new
 
-    @patient.dob = params.fetch("dob")
+    @patient.dob = Chronic.parse(params.fetch("dob"))
     @patient.first_name = params.fetch("first_name")
     @patient.last_name = params.fetch("last_name")
     @patient.doctor_id =  current_user.id
@@ -28,7 +29,7 @@ class PatientsController < ApplicationController
     if @patient.valid?
       @patient.save
 
-      redirect_back(:fallback_location => "/patients", :notice => "Patient created successfully.")
+      redirect_back(:fallback_location => "/", :notice => "Patient created successfully.")
     else
       render("patient_templates/new_form_with_errors.html.erb")
     end
@@ -44,7 +45,9 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params.fetch("id_to_modify"))
 
     @patient.dob = params.fetch("dob")
-    @patient.doctor_id = params.fetch("doctor_id")
+    @patient.first_name = params.fetch("first_name")
+    @patient.last_name = params.fetch("last_name")
+    @patient.doctor_id =  current_user.id
 
     if @patient.valid?
       @patient.save
