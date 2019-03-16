@@ -37,24 +37,24 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_pharmacy/:id_to_remove", { :controller => "pharmacies", :action => "destroy_row" })
 
-  #------------------------------
+  #------------------------------ 
 
-  # Routes for the Concentration resource:
+  # # Routes for the Concentration resource: NOTE: CURRENTLY UNUSED BECAUSE THIS IS A JOINING TABLE
 
-  # CREATE
-  get("/concentrations/new", { :controller => "concentrations", :action => "new_form" })
-  post("/create_concentration", { :controller => "concentrations", :action => "create_row" })
+  # # CREATE
+  # get("/concentrations/new", { :controller => "concentrations", :action => "new_form" })
+  # post("/create_concentration", { :controller => "concentrations", :action => "create_row" })
 
-  # READ
-  get("/concentrations", { :controller => "concentrations", :action => "index" })
-  get("/concentrations/:id_to_display", { :controller => "concentrations", :action => "show" })
+  # # READ
+  # get("/concentrations", { :controller => "concentrations", :action => "index" })
+  # get("/concentrations/:id_to_display", { :controller => "concentrations", :action => "show" })
 
-  # UPDATE
-  get("/concentrations/:prefill_with_id/edit", { :controller => "concentrations", :action => "edit_form" })
-  post("/update_concentration/:id_to_modify", { :controller => "concentrations", :action => "update_row" })
+  # # UPDATE
+  # get("/concentrations/:prefill_with_id/edit", { :controller => "concentrations", :action => "edit_form" })
+  # post("/update_concentration/:id_to_modify", { :controller => "concentrations", :action => "update_row" })
 
-  # DELETE
-  get("/delete_concentration/:id_to_remove", { :controller => "concentrations", :action => "destroy_row" })
+  # # DELETE
+  # get("/delete_concentration/:id_to_remove", { :controller => "concentrations", :action => "destroy_row" })
 
   #------------------------------
 

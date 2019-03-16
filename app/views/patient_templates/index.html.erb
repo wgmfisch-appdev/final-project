@@ -20,18 +20,10 @@
         <th>
           Name
         </th>
-
         <th>
-          Dob
+          Date of Birth
         </th>
 
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
 
         <th>
         </th>
@@ -44,18 +36,9 @@
             <%= patient.first_name %>
             <%= patient.last_name %>
           </td>
-  
           <td>
             <%= patient.dob %>
           </td>
-  
-          <td>
-            <%= time_ago_in_words(patient.created_at) %> ago
-          </td>
-          <td>
-            <%= time_ago_in_words(patient.updated_at) %> ago
-          </td>
-  
           <td>
             <a href="/patients/<%= patient.id %>">
               Show details

@@ -29,7 +29,7 @@ class PatientsController < ApplicationController
     if @patient.valid?
       @patient.save
 
-      redirect_back(:fallback_location => "/", :notice => "Patient created successfully.")
+      redirect_to("/", :notice => "Patient created successfully.")
     else
       render("patient_templates/new_form_with_errors.html.erb")
     end
