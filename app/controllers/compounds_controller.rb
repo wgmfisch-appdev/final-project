@@ -1,6 +1,7 @@
 class CompoundsController < ApplicationController
   def index
-    @compounds = Compound.all
+    @patients = Patient.where(doctor_id: current_user.id)
+    @compounds = Compound.where(patient_id: @patients.ids)
 
     render("compound_templates/index.html.erb")
   end
@@ -13,26 +14,38 @@ class CompoundsController < ApplicationController
 
   def new_form
     @compound = Compound.new
+    @patients = Patient.where(doctor_id: current_user.id)
 
     render("compound_templates/new_form.html.erb")
   end
 
   def create_row
     @compound = Compound.new
-
+    @concentrations = Concentration.new
+    
     @compound.patient_id = params.fetch("patient_id")
+    @concentrations.ingredient_id = params.fetch("ingredient_id")
+    @concentrations.ingredient_concentration = params.fetch("ingredient_concentration")
 
-    if @compound.valid?
+    if @compound.valid? 
       @compound.save
-
-      redirect_back(:fallback_location => "/compounds", :notice => "Compound created successfully.")
+      @concentrations.compound_id = @compound.id
+      if @concentrations.valid?
+        @concentrations.save
+        redirect_to("/compounds", :notice => "Compound created successfully.")
+      else
+        @patients = Patient.where(doctor_id: current_user.id)
+        render("compound_templates/new_form_with_errors.html.erb")
+      end
     else
+      @patients = Patient.where(doctor_id: current_user.id)
       render("compound_templates/new_form_with_errors.html.erb")
     end
   end
 
   def edit_form
     @compound = Compound.find(params.fetch("prefill_with_id"))
+    @patients = Patient.where(doctor_id: current_user.id)
 
     render("compound_templates/edit_form.html.erb")
   end

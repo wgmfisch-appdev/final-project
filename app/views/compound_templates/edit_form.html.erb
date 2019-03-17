@@ -11,7 +11,8 @@
       Patient
     </label>
 
-    <input type="text" id="patient_id" name="patient_id" class="form-control" value="<%= @compound.patient_id %>">
+    <%= select_tag("patient_id", options_from_collection_for_select(@patients.all, :id, :first_name, @compound.patient_id), :class => "form-control") %>
+    or <a href="/patients/new">Add a New Patient</a> first
   </div>
 
   <button class="btn btn-block btn-outline-secondary">

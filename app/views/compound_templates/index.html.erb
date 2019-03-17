@@ -18,7 +18,7 @@
     <table class="table">
       <tr>
         <th>
-          ID
+          Compound Name
         </th>
 
         <th>
@@ -40,7 +40,7 @@
       <% @compounds.each do |compound| %>
       <tr>
         <td>
-          <%= compound.id %>
+          <%= compound.patient.first_name.titleize %>'s #<%= compound.id %>
         </td>
 
         <td>

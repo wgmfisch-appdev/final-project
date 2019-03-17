@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   # post("/create_concentration", { :controller => "concentrations", :action => "create_row" })
 
   # # READ
-  # get("/concentrations", { :controller => "concentrations", :action => "index" })
+  get("/concentrations", { :controller => "concentrations", :action => "index" })
   # get("/concentrations/:id_to_display", { :controller => "concentrations", :action => "show" })
 
   # # UPDATE
