@@ -36,21 +36,19 @@
       <% @compounds.each do |compound| %>
       <tr>
         <td>
-          <%= compound.patient.first_name.titleize %>'s #<%= compound.id %>
+          <a href="/compounds/<%= compound.id %>">
+            <%= compound.patient.first_name.titleize %>'s #<%= compound.id %>
+          </a>
         </td>
 
         <td>
-          <%= compound.patient.first_name.titleize %> <%=compound.patient.last_name.titleize %>
+          <a href="/patients/<%= compound.patient.id %>">
+            <%= compound.patient.first_name.titleize %> <%=compound.patient.last_name.titleize %>
+          </a>
         </td>
 
         <td>
           <%= time_ago_in_words(compound.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/compounds/<%= compound.id %>">
-            Show details
-          </a>
         </td>
       </tr>
       <% end %>
