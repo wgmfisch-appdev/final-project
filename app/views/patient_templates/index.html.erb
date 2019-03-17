@@ -33,16 +33,13 @@
         <% if patient.doctor.id == current_user.id %>
         <tr>
           <td>
-            <%= patient.first_name %>
-            <%= patient.last_name %>
+            <a href="/patients/<%= patient.id %>">
+              <%= patient.first_name.titleize %>
+              <%= patient.last_name.titleize %>
+            </a>
           </td>
           <td>
             <%= patient.dob %>
-          </td>
-          <td>
-            <a href="/patients/<%= patient.id %>">
-              Show details
-            </a>
           </td>
         </tr>
         <% end %>
