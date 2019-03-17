@@ -26,11 +26,7 @@
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          Last Updated
         </th>
 
         <th>
@@ -44,12 +40,9 @@
         </td>
 
         <td>
-          <%= compound.patient_id %>
+          <%= compound.patient.first_name.titleize %> <%=compound.patient.last_name.titleize %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(compound.created_at) %> ago
-        </td>
         <td>
           <%= time_ago_in_words(compound.updated_at) %> ago
         </td>
