@@ -55,15 +55,11 @@ class CompoundsController < ApplicationController
 
   def update_row
     @compound = Compound.find(params.fetch("id_to_modify"))
-
     @compound.patient_id = params.fetch("patient_id")
-    # @compound.concentrations.ingredient_id = params.fetch("ingredient_id")
-    # @compound.concentrations.ingredient_concentration = params.fetch("ingredient_concentration")
+    
     @concentration = @compound.concentrations.new
     @concentration.ingredient_concentration = params.fetch("ingredient_concentration")
     @concentration.ingredient_id = params.fetch("ingredient_id")
-    # @concentration.save
-    # @compound.save
 
     if @compound.valid? && @concentration.valid?
       @compound.save
