@@ -14,7 +14,7 @@ class Ingredient < ApplicationRecord
   has_many :compounds, :through => :concentrations, :source => :compound
   
   def concentration_for_compound(compound)
-    self.concentrations.where(compound: compound)
+    self.concentrations.where(compound: compound).first
   end
   
 end

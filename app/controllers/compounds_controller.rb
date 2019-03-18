@@ -61,7 +61,7 @@ class CompoundsController < ApplicationController
     if @compound.valid?
       @compound.save
 
-      redirect_to("/compounds/#{@compound.id}", :notice => "Compound updated successfully.")
+      redirect_to("/compounds/#{@compound.id}/edit", :notice => "Compound created successfully.")
     else
       render("compound_templates/edit_form_with_errors.html.erb")
     end
