@@ -20,7 +20,9 @@
     <div>
       <% @compound.ingredients.each do |ingredient| %>
         <div>
-          <%= link_to ingredient.name, ingredients_path(ingredient) %>
+          <a href="/ingredients/<%= ingredient.id%>">
+              <%= ingredient.name %>
+            </a>
           <%= ingredient.concentration_for_compound(@compound).ingredient_concentration%>%
         </div>
       <% end %>

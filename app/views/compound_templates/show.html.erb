@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Compound #<%= @compound.id %> details
+      <%= @compound.patient.first_name.titleize %>'s #<%= @compound.id %>
     </h1>
 
     <div class="row mb-3">
@@ -29,14 +29,22 @@
         Patient
       </dt>
       <dd>
-        <%= @compound.patient_id %>
+        <%= @compound.patient.first_name.titleize %>
+        <%= @compound.patient.last_name.titleize %>
       </dd>
 
       <dt>
-        Created at
+        Ingredients
       </dt>
       <dd>
-        <%= time_ago_in_words(@compound.created_at) %> ago
+        <% @compound.ingredients.each do |ingredient| %>
+          <div>
+            <a href="/ingredients/<%= ingredient.id%>">
+              <%= ingredient.name %>
+            </a>
+            <%= ingredient.concentration_for_compound(@compound).ingredient_concentration%>%
+          </div>
+        <% end %>
       </dd>
 
       <dt>
