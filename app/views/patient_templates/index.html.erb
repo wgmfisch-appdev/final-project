@@ -43,9 +43,15 @@
             <%= patient.dob %>
           </td>
           <td>
-            <a href="/compounds/<%=patient.compounds.last.id %>">
-              <%= patient.first_name.titleize%>'s #<%= patient.compounds.last.id %>
-            </a>
+            <% if patient.compounds.last.present? %>
+              <a href="/compounds/<%=patient.compounds.last.id %>">
+                <%= patient.first_name.titleize%>'s #<%= patient.compounds.last.id %>
+              </a>
+            <% else %>
+              <a href="/compounds/new">
+                Make a First Compound
+              </a>
+            <% end %>
           </td>
         </tr>
         <% end %>
