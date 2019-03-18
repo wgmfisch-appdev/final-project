@@ -60,9 +60,10 @@ class CompoundsController < ApplicationController
     # @compound.concentrations.ingredient_id = params.fetch("ingredient_id")
     # @compound.concentrations.ingredient_concentration = params.fetch("ingredient_concentration")
     @concentration = @compound.concentrations.new
+    @compound.save
 
     if @compound.valid?
-      @compound.save
+      # @compound.save
 
       redirect_to("/compounds/#{@compound.id}/edit", :notice => "Compound created successfully.")
     else
