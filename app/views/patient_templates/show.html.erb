@@ -41,10 +41,18 @@
       </dd>
 
       <dt>
-        Patient Since
+        Most Recent Compound
       </dt>
       <dd>
-        <%= time_ago_in_words(@patient.created_at) %> ago
+        <% if @patient.compounds.last.present? %>
+          <a href="/compounds/<%=@patient.compounds.last.id %>">
+            <%= @patient.first_name.titleize%>'s #<%= @patient.compounds.last.id %>
+          </a>
+        <% else %>
+          <a href="/compounds/new">
+            Make a First Compound
+          </a>
+        <% end %>
       </dd>
 
       <dt>
