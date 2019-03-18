@@ -20,7 +20,7 @@ class IngredientsController < ApplicationController
   def create_row
     @ingredient = Ingredient.new
 
-    @ingredient.name = params.fetch("name")
+    @ingredient.name = params.fetch("name").titleize
     @ingredient.is_base = params.fetch("is_base", false)
 
     if @ingredient.valid?
@@ -41,7 +41,7 @@ class IngredientsController < ApplicationController
   def update_row
     @ingredient = Ingredient.find(params.fetch("id_to_modify"))
 
-    @ingredient.name = params.fetch("name")
+    @ingredient.name = params.fetch("name").titleize
     @ingredient.is_base = params.fetch("is_base")
 
     if @ingredient.valid?

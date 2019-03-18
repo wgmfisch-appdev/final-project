@@ -26,6 +26,7 @@
 
 
         <th>
+          Most Recent Compound
         </th>
       </tr>
 
@@ -40,6 +41,11 @@
           </td>
           <td>
             <%= patient.dob %>
+          </td>
+          <td>
+            <a href="/compounds/<%=patient.compounds.last.id %>">
+              <%= patient.first_name.titleize%>'s #<%= patient.compounds.last.id %>
+            </a>
           </td>
         </tr>
         <% end %>
