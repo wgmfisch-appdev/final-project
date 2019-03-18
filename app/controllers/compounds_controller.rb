@@ -32,7 +32,7 @@ class CompoundsController < ApplicationController
       @concentrations.compound_id = @compound.id
       if @concentrations.valid?
         @concentrations.save
-        redirect_to("/compounds", :notice => "Compound created successfully.")
+        redirect_to("/compounds/#{@compound.id}/edit", :notice => "Compound created successfully.")
       else
         @patients = Patient.where(doctor_id: current_user.id)
         render("compound_templates/new_form_with_errors.html.erb")
@@ -46,6 +46,9 @@ class CompoundsController < ApplicationController
   def edit_form
     @compound = Compound.find(params.fetch("prefill_with_id"))
     @patients = Patient.where(doctor_id: current_user.id)
+    
+    # @ingredients.names = @compound.ingredients
+    # @ingredients.concentrations = @compound.concentrations.ingredient_concentration
 
     render("compound_templates/edit_form.html.erb")
   end

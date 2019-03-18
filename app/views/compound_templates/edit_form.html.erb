@@ -14,6 +14,16 @@
     <%= select_tag("patient_id", options_from_collection_for_select(@patients.all, :id, :first_name, @compound.patient_id), :class => "form-control") %>
     or <a href="/patients/new">Add a New Patient</a> first
   </div>
+  
+  <div>
+    Ingredients
+    <div>
+      <% @compound.ingredients.each do |ingredient| %>
+        <%= link_to ingredient.name, ingredients_path(ingredient) %>
+        <%= ingredient.concentrations%>
+      <% end %>
+    </div>
+  </div>
 
   <button class="btn btn-block btn-outline-secondary">
     Update compound

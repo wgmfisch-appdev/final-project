@@ -18,13 +18,18 @@
   
   <div class="form-group">
     <label for="ingredient_id">
-      Ingredient
+      Ingredients
     </label>
-
-    <%= select_tag("ingredient_id", options_from_collection_for_select(Ingredient.all, :id, :name), :class => "form-control") %>
-    <a href="/ingredients/new">Add a New Ingredient</a> first
-    And choose its concentration
-    <input type="number" min="0" max="100" step="0.01" id="ingredient_concentration" name="ingredient_concentration" class="form-control" value="3">
+    
+    <form action="/new_form"  method="post">
+      <%= select_tag("ingredient_id", options_from_collection_for_select(Ingredient.all, :id, :name), :class => "form-control") %>
+      <a href="/ingredients/new">Add a New Ingredient</a> first
+      And choose its concentration
+      <input type="number" min="0" max="100" step="0.01" id="ingredient_concentration" name="ingredient_concentration" class="form-control" value="3">
+      <button class="btn btn-block btn-outline-secondary">
+        Add Ingredient to Compound
+      </button>
+    </form>
   </div>
   
   <button class="btn btn-block btn-outline-secondary">

@@ -12,4 +12,9 @@
 class Ingredient < ApplicationRecord
   has_many :concentrations, :dependent => :destroy
   has_many :compounds, :through => :concentrations, :source => :compound
+  
+  def concentration_for_compound(compound)
+    self.concentrations.where(compound: compound)
+  end
+  
 end
