@@ -57,12 +57,16 @@ class CompoundsController < ApplicationController
     @compound = Compound.find(params.fetch("id_to_modify"))
 
     @compound.patient_id = params.fetch("patient_id")
+    # @compound.concentrations.ingredient_id = params.fetch("ingredient_id")
+    # @compound.concentrations.ingredient_concentration = params.fetch("ingredient_concentration")
+    @concentration = @compound.concentrations.new
 
     if @compound.valid?
       @compound.save
 
       redirect_to("/compounds/#{@compound.id}/edit", :notice => "Compound created successfully.")
     else
+      @patients = Patient.where(doctor_id: current_user.id)
       render("compound_templates/edit_form_with_errors.html.erb")
     end
   end
